@@ -27,17 +27,65 @@
       font-size: 16px;
       opacity: 0.8;
     }
+    .btn {
+      display: inline-block;
+      margin: 15px;
+      padding: 12px 20px;
+      background-color: #045174;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #0679a3;
+    }
   </style>
 </head>
 <body>
   <img src="https://files.cdn-files-a.com/uploads/11353011/800_694b5776d2a9c.png?aspect_ratio=1:1&width=192&format=png" alt="BRITEX Logo" class="logo" />
+  
   <h1>BRITEX Electrónica</h1>
   <p>Plataforma cubana de innovación técnica, productos electrónicos y energía confiable.</p>
 
+  <!-- Botones principales -->
+  <a href="https://britexelectronica.com/catalogo" class="btn">📦 Catálogo</a>
+  <a href="https://www.trustpilot.com/review/britexelectronica.com" class="btn">⭐ Opiniones</a>
+  <a href="mailto:contacto@britexelectronica.com" class="btn">📧 Contacto</a>
+
+  <!-- Botón de instalación -->
+  <button id="installBtn" class="btn" style="display:none;">📲 Instalar App</button>
+
+  <!-- Registro del Service Worker -->
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("service-worker.js");
     }
+
+    let deferredPrompt;
+    const installBtn = document.getElementById("installBtn");
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = "inline-block";
+    });
+
+    installBtn.addEventListener("click", async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === "accepted") {
+          console.log("Usuario instaló la PWA");
+        } else {
+          console.log("Usuario rechazó la instalación");
+        }
+        deferredPrompt = null;
+        installBtn.style.display = "none";
+      }
+    });
   </script>
 </body>
 </html>
