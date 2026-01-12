@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BRITEX Electrónica</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#045174" />
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    .logo {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 16px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://files.cdn-files-a.com/uploads/11353011/800_694b5776d2a9c.png?aspect_ratio=1:1&width=192&format=png" alt="BRITEX Logo" class="logo" />
+  <h1>BRITEX Electrónica</h1>
+  <p>Plataforma cubana de innovación técnica, productos electrónicos y energía confiable.</p>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
+</body>
+</html>
