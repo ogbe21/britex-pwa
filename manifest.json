@@ -1,12 +1,14 @@
 {
   "name": "BRITEX Electrónica",
   "short_name": "BRITEX",
-  "description": "Productos electrónicos y energía confiable. Funciona sin conexión.",
-  "id": "/?app=1",
-  "start_url": "/?app=1",
-  "scope": "/",
+  "description": "BRITEX Electrónica: tienda y plataforma cubana de innovación técnica, productos electrónicos y energía confiable. Una experiencia ligera, instalable y disponible incluso sin conexión.",
+  "id": "https://ogbe21.github.io/britex-pwa/?app=1",
+  "start_url": "https://ogbe21.github.io/britex-pwa/?app=1",
+  "scope": "https://ogbe21.github.io/britex-pwa/",
   "display": "standalone",
+  "display_override": ["standalone"],
   "orientation": "portrait",
+  "dir": "ltr",
   "lang": "es",
   "theme_color": "#045174",
   "background_color": "#000000",
@@ -14,14 +16,12 @@
     {
       "src": "https://files.cdn-files-a.com/uploads/11353011/800_694b5776d2a9c.png?aspect_ratio=1:1&width=192&format=png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     },
     {
       "src": "https://files.cdn-files-a.com/uploads/11353011/800_694b5776d2a9c.png?aspect_ratio=1:1&width=512&format=png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ]
 }
