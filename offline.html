@@ -3,33 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sin conexión | BRITEX Electrónica</title>
+  <!-- Elimina cualquier fuente externa para no depender de red -->
   <style>
     body {
-      background-color: #000;
+      margin: 0;
+      padding: 20px;
+      background: #000;
       color: #fff;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacOSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       text-align: center;
-      padding: 40px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     .logo {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 20px;
+      width: 90px;
+      height: 90px;
+      margin-bottom: 24px;
+      object-fit: contain;
     }
     h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
+      margin: 0 0 12px;
+      font-size: 1.6rem;
+      font-weight: 600;
     }
     p {
-      font-size: 16px;
-      opacity: 0.8;
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.85;
+      max-width: 320px;
+      line-height: 1.4;
+    }
+    .retry {
+      margin-top: 32px;
+      padding: 10px 24px;
+      background: #222;
+      color: #fff;
+      border: 1px solid #444;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .retry:hover {
+      background: #333;
     }
   </style>
 </head>
 <body>
-  <img src="https://files.cdn-files-a.com/uploads/11353011/800_694b5776d2a9c.png?aspect_ratio=1:1&width=192&format=png" alt="BRITEX Logo" class="logo">
+  <img 
+    src="https://files.cdn-files-a.com/uploads/11353011/800_694b5776d2a9c.png?aspect_ratio=1:1&width=192&format=png" 
+    alt="BRITEX Electrónica" 
+    class="logo"
+    loading="eager" 
+    decoding="async"
+  >
   <h1>Sin conexión</h1>
   <p>Tu energía está intacta. BRITEX sigue contigo, incluso cuando el voltaje de la red se ausenta.</p>
+
+  <button class="retry" onclick="window.location.reload()">Intentar de nuevo</button>
+
+  <!-- Script mínimo para recargar cuando vuelva la conexión -->
+  <script>
+    window.addEventListener('online', () => {
+      window.location.reload();
+    });
+  </script>
 </body>
 </html>
