@@ -54,33 +54,14 @@
 
   <div id="status">Cargando... (Offline listo)</div>
 
-  <script>
-    // Registro Service Worker optimizado para scope completo
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js', { scope: '/' })
-          .then(() => document.getElementById('status').textContent = '¡Offline activado!')
-          .catch(err => document.getElementById('status').textContent = 'Modo básico');
-      });
-    }
-
-    // Prompt de instalación PWA
-    let deferredPrompt;
-    const installBtn = document.getElementById('installBtn');
-    window.addEventListener('beforeinstallprompt', e => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installBtn.style.display = 'block';
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        .then(() => console.log('SW registrado OK'))
+        .catch(err => console.error('Error SW:', err));
     });
-    installBtn.addEventListener('click', async () => {
-      deferredPrompt?.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      deferredPrompt = null;
-      installBtn.style.display = 'none';
-    });
-
-    // Reconexión automática
-    window.addEventListener('online', () => location.reload());
-  </script>
+  }
+</script>
 </body>
 </html>
