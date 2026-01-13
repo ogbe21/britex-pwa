@@ -1,38 +1,26 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/7.1.0/workbox-sw.js');
+const CACHE_NAME = 'britex-offline-v4'; // Cambia el número si actualizas
+const OFFLINE_URL = '/offline.html';
 
-const CACHE = 'britex-v3'; // Cambia versión para actualizar
-const OFFLINE_PAGE = '/offline.html';
-
-workbox.setConfig({ debug: false });
-
-// Precachea lo esencial
+// Instala y cachea offline.html + la home
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE).then(cache => 
-      cache.addAll([OFFLINE_PAGE, '/'])
-    )
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll([OFFLINE_URL, '/']))
   );
-  self.skipWaiting();
+  self.skipWaiting(); // Activa rápido
 });
 
+// Limpia caches viejos
 self.addEventListener('activate', event => {
   event.waitUntil(self.clients.claim());
 });
 
-// Navegación: sirve cache primero, fallback a offline.html
-workbox.routing.registerRoute(
-  ({request}) => request.mode === 'navigate',
-  async ({event}) => {
-    try {
-      return await workbox.strategies.staleWhileRevalidate({cacheName: CACHE})(event);
-    } catch (err) {
-      return caches.match(OFFLINE_PAGE);
-    }
+// Intercepta todas las navegaciones
+self.addEventListener('fetch', event => {
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .catch(() => caches.match(OFFLINE_URL))
+    );
   }
-);
-
-// Assets estáticos: cache first
-workbox.routing.registerRoute(
-  /\.(?:png|jpg|jpeg|svg|webp)$/,
-  new workbox.strategies.CacheFirst({ cacheName: 'images' })
-);
+});
