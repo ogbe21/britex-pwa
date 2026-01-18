@@ -1,91 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Britex Electrónica</title>
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#045174" />
-  <style>
-    body {
-      background-color: #B3E5FC;
-      color: #fff;
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      padding: 40px;
-    }
-    .logo {
-      width: 120px;
-      height: 120px;
-      margin-bottom: 20px;
-    }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 16px;
-      opacity: 0.8;
-    }
-    .btn {
-      display: inline-block;
-      margin: 15px;
-      padding: 12px 20px;
-      background-color: #045174;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: background 0.3s;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background-color: #0679a3;
-    }
-  </style>
+  <meta charset="UTF-8"><title>BRITEX PWA</title>
+  <style>body { background: #045174; display: flex; align-items: center; justify-content: center; height: 100vh; color: white; }</style>
 </head>
 <body>
-  <img src="https://ogbe21.github.io/britex-pwa/icon-521.webp" alt="BRITEX Logo" class="logo" />
-  
-  <h1>BRITEX Electrónica</h1>
-  <p>Plataforma cubana de innovación técnica, productos electrónicos y energía confiable.</p>
-
-  <!-- Botones principales -->
-  <a href="https://www.britexelectronica.com/tienda/" class="btn">📦 Catálogo</a>
-  <a href="https://www.trustpilot.com/review/britexelectronica.com" class="btn">⭐ Opiniones</a>
-  <a href="https://www.britexelectronica.com/contáctanos/" class="btn">📧 Contáctanos</a>
-
-  <!-- Botón de instalación -->
-  <button id="installBtn" class="btn" style="display:none;">📲 Instalar App</button>
-
-  <!-- Registro del Service Worker -->
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js");
-    }
-
-    let deferredPrompt;
-    const installBtn = document.getElementById("installBtn");
-
-    window.addEventListener("beforeinstallprompt", (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-      installBtn.style.display = "inline-block";
-    });
-
-    installBtn.addEventListener("click", async () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === "accepted") {
-          console.log("Usuario instaló la PWA");
-        } else {
-          console.log("Usuario rechazó la instalación");
-        }
-        deferredPrompt = null;
-        installBtn.style.display = "none";
-      }
-    });
-  </script>
+  <div style="text-align: center;">
+    <img src="icon-512.webp" width="150">
+    <p>Cargando BRITEX Electrónica...</p>
+  </div>
+  <script>window.location.href = "https://www.britexelectronica.com/";</script>
 </body>
 </html>
