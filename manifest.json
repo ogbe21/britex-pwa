@@ -1,27 +1,30 @@
 {
-  "name": "BRITEX Electrónica",
+  "name": "Britex Electrónica",
   "short_name": "BRITEX",
-  "description": "BRITEX Electrónica: tienda y plataforma cubana de innovación técnica, productos electrónicos y energía confiable. Una experiencia ligera, instalable y disponible incluso sin conexión.",
-  "id": "https://ogbe21.github.io/britex-pwa/?app=1",
-  "start_url": "https://ogbe21.github.io/britex-pwa/?app=1",
-  "scope": "https://ogbe21.github.io/britex-pwa/",
+  "description": "Innovación técnica y energía confiable en Cuba.",
+  "start_url": "/britex-pwa/?utm_source=pwa",
   "display": "standalone",
-  "display_override": ["standalone"],
-  "orientation": "portrait",
-  "dir": "ltr",
-  "lang": "es",
+  "background_color": "#045174",
   "theme_color": "#045174",
-  "background_color": "#000000",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "https://files.cdn-files-a.com/uploads/11353011/800_694b5776d2a9c.png?aspect_ratio=1:1&width=192&format=png",
+      "src": "icon-192.webp",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/webp",
+      "purpose": "any maskable"
     },
     {
-      "src": "https://files.cdn-files-a.com/uploads/11353011/800_694b5776d2a9c.png?aspect_ratio=1:1&width=512&format=png",
+      "src": "icon-512.webp",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/webp"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Catálogo",
+      "url": "https://www.britexelectronica.com/tienda/",
+      "icons": [{ "src": "icon-192.webp", "sizes": "192x192" }]
     }
   ]
 }
