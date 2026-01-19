@@ -3,93 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BRITEX | Modo Offline</title>
+  <title>BRITEX | Offline</title>
   <style>
     :root { --primary: #045174; --bg: #B3E5FC; }
-    body {
-      background-color: var(--bg);
-      color: #fff;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 90vh;
-    }
-    .logo { width: 100px; height: 100px; margin-bottom: 20px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
-    h1 { font-size: 26px; margin: 10px 0; color: var(--primary); }
-    p { font-size: 16px; color: #333; max-width: 300px; line-height: 1.4; }
-    .status-badge {
-      background: #ff9800;
-      padding: 5px 15px;
-      border-radius: 20px;
-      font-size: 12px;
-      margin-bottom: 20px;
-      font-weight: bold;
-    }
-    .btn {
-      display: block;
-      width: 200px;
-      margin: 10px;
-      padding: 14px;
-      background-color: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      border: none;
-      transition: transform 0.2s;
-    }
-    .btn:active { transform: scale(0.95); }
-    .loader {
-      border: 3px solid #f3f3f3;
-      border-top: 3px solid var(--primary);
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      animation: spin 1s linear infinite;
-      display: inline-block;
-      vertical-align: middle;
-      margin-right: 8px;
-    }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    body { background: var(--bg); color: var(--primary); font-family: sans-serif; text-align: center; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 90vh; }
+    .logo { width: 100px; height: 100px; margin-bottom: 20px; }
+    .btn { display: block; width: 220px; margin: 10px; padding: 15px; background: var(--primary); color: #fff; text-decoration: none; border-radius: 8px; font-weight: bold; }
   </style>
 </head>
 <body>
-  <img src="https://ogbe21.github.io/britex-pwa/icon-512.webp" alt="Logo" class="logo" />
-  
-  <div class="status-badge" id="status">SIN CONEXIÓN</div>
-  
+  <img src="icon-512.png" alt="Logo" class="logo" />
   <h1>BRITEX Electrónica</h1>
-  <p>Parece que tu conexión es lenta o nula. No te preocupes, la app te avisará cuando vuelvas a estar en línea.</p>
-
-  <div id="reconnecting" style="display:none; color: var(--primary); margin-bottom: 15px;">
-    <div class="loader"></div> Buscando señal...
-  </div>
-
+  <p>Sin conexión. La app se actualizará automáticamente cuando detecte señal.</p>
   <button onclick="window.location.reload()" class="btn">🔄 Reintentar ahora</button>
-  <a href="https://www.britexelectronica.com/tienda/" class="btn">📦 Ver Catálogo (Cache)</a>
-
+  <a href="https://www.britexelectronica.com/tienda/" class="btn">📦 Ver Catálogo</a>
   <script>
-    // Detector de recuperación de red
     window.addEventListener('online', () => {
-      document.getElementById('status').style.backgroundColor = '#4CAF50';
-      document.getElementById('status').innerText = '¡EN LÍNEA!';
-      document.getElementById('reconnecting').style.display = 'block';
-      
-      // Redirigir automáticamente tras 1.5 segundos de recuperar red
-      setTimeout(() => {
-        window.location.href = "https://www.britexelectronica.com/tienda/";
-      }, 1500);
-    });
-
-    // Lógica para el botón de instalación (si el SW lo detecta)
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
+        setTimeout(() => window.location.href = "https://www.britexelectronica.com/tienda/", 1000);
     });
   </script>
 </body>
