@@ -2,7 +2,7 @@
   "name": "Britex Electrónica",
   "short_name": "BRITEX",
   "description": "Innovación técnica y energía confiable en Cuba.",
-  "start_url": "/britex-pwa/?utm_source=pwa",
+  "start_url": "/britex-pwa/",
   "display": "standalone",
   "background_color": "#045174",
   "theme_color": "#045174",
