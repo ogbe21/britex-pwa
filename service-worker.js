@@ -1,6 +1,6 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js');
 
-const CACHE_NAME = "britex-cache-v2";
+const CACHE_NAME = "britex-cache-v3";
 const OFFLINE_URL = "offline.html";
 
 self.addEventListener("message", (event) => {
@@ -13,13 +13,15 @@ self.addEventListener('install', (event) => {
       return cache.addAll([
         OFFLINE_URL,
         'index.html',
-        'icon-192.png'
+        'icon-192.png',
+        'icon-512.png',
+        'manifest.json'
       ]);
     })
   );
 });
 
-// Cache First para imágenes: Ahorro crítico de datos en Cuba
+// Cache First para imágenes
 workbox.routing.registerRoute(
   ({request}) => request.destination === 'image',
   new workbox.strategies.CacheFirst({
@@ -28,12 +30,12 @@ workbox.routing.registerRoute(
   })
 );
 
-// Network First con timeout de 3s para evitar esperas eternas
+// Network First con timeout de 5s para navegación
 workbox.routing.registerRoute(
   ({request}) => request.mode === 'navigate',
   new workbox.strategies.NetworkFirst({
     cacheName: 'britex-navigation',
-    networkTimeoutSeconds: 3,
+    networkTimeoutSeconds: 5,
   })
 );
 
