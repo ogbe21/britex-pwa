@@ -33,12 +33,5 @@
       "type": "image/png",
       "purpose": "monochrome"
     }
-  ],
-  "shortcuts": [
-    {
-      "name": "Catálogo",
-      "url": "https://www.britexelectronica.com/tienda/",
-      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
-    }
   ]
 }
