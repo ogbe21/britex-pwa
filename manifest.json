@@ -3,7 +3,7 @@
   "short_name": "BRITEX",
   "description": "Innovación técnica y energía confiable en Cuba.",
   "start_url": "https://ogbe21.github.io/britex-pwa/index.html",
-  "scope": "https://ogbe21.github.io/britex-pwa/",
+  "scope": "/britex-pwa/",
   "display": "standalone",
   "background_color": "#045174",
   "theme_color": "#045174",
