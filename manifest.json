@@ -1,9 +1,9 @@
 {
   "name": "Britex Electrónica",
   "short_name": "BRITEX",
-  "description": "Innovación técnica y energía confiable en Cuba.",
-  "start_url": "https://www.britexelectronica.com/",
-  "scope": "https://www.britexelectronica.com/",
+  "description": "Componentes, herramientas y asesoría técnica para soluciones reales en Cuba.",
+  "start_url": "https://www.britexelectronica.com/?source=pwa",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#045174",
   "theme_color": "#045174",
